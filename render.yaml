@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: resume-screening-backend
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn resume_screening_application.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: resume_screening_application.settings
+      - key: PYTHON_VERSION
+        value: 3.10
