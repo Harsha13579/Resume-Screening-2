@@ -2,7 +2,9 @@ services:
   - type: web
     name: resume-screening-backend
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
     startCommand: gunicorn resume_screening_application.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
