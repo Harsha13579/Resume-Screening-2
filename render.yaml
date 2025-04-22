@@ -5,6 +5,7 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python manage.py migrate
+      python create_superuser.py
     startCommand: gunicorn resume_screening_application.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
